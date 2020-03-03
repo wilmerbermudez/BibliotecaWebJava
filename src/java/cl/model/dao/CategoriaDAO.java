@@ -17,15 +17,15 @@ import org.hibernate.HibernateException;
  * @author willi
  */
 public class CategoriaDAO {
-    public String consultarCategoria(String Nombre){
+    public String consultarCategoria(String nombre){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sesion = sf.openSession();
-        Categoria c = (Categoria)sesion.get(Categoria.class, Nombre);
+        Categoria c = (Categoria)sesion.get(Categoria.class, nombre);
         if(c != null){
             return "La categoria: " + c.getNombre() + "existe";
         }
         else{
-            return "La categoria de : " + Nombre + "no existe";
+            return "La categoria de : " + nombre + "no existe";
         }
     }
     

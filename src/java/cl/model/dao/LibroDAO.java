@@ -17,15 +17,27 @@ import org.hibernate.HibernateException;
  * @author willi
  */
 public class LibroDAO {
-    public String consultarCategoria(String Nombre){
+    public String consultarLibro(String titulo){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sesion = sf.openSession();
-        Libro l = (Libro)sesion.get(Libro.class, Nombre);
+        Libro l = (Libro)sesion.get(Libro.class, titulo);
         if(l != null){
             return "El libro : " + l.getTitulo() + "existe";
         }
         else{
-            return "El libro : " + Nombre + "no existe";
+            return "El libro : " + titulo + "no existe";
+        }
+    }
+    
+    public String consultarAutor(String autor){
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session sesion = sf.openSession();
+        Libro l = (Libro)sesion.get(Libro.class, autor);
+        if(l != null){
+            return "El libro : " + l.getAutor() + "existe";
+        }
+        else{
+            return "El libro : " + autor + "no existe";
         }
     }
     
