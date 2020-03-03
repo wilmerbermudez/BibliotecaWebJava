@@ -5,10 +5,24 @@
  */
 package cl.model.dao;
 
+import cl.model.pojos.Prestamo;
+import org.hibernate.SessionFactory;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.Query;
+import java.util.List;
+import org.hibernate.HibernateException;
 /**
  *
  * @author willi
  */
 public class PrestamoDAO {
-    
+    public List<Prestamo> verCategoria(){
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session sesion = sf.openSession();
+        Query query = sesion.createQuery("from Prestamo");
+        List<Prestamo> lista = query.list();
+        sesion.close();
+        return lista;
+    }
 }

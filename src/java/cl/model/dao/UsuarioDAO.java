@@ -38,5 +38,12 @@ public class UsuarioDAO {
     public String consultarUsuario(int NIP){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sesion = sf.openSession();
+        Usuario u = (Usuario)sesion.get(Usuario.class, NIP);
+        if(u != null){
+            return "El usuario con codigo " + u.getNip() + "es" + u.getNombre() + "celular : " + u.getCelular();
+        }
+        else{
+            return "El usuario con NIP: " + NIP + "no existe";
+        }
     }
 }
