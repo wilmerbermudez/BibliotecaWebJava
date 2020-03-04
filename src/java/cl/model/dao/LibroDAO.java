@@ -22,7 +22,7 @@ public class LibroDAO {
         Session sesion = sf.openSession();
         Libro l = (Libro)sesion.get(Libro.class, titulo);
         if(l != null){
-            return "El libro : " + l.getTitulo() + "existe";
+            return "El libro : " + l.getTitulo() + "se encuentra disponible";
         }
         else{
             return "El libro : " + titulo + "no existe";
@@ -37,7 +37,7 @@ public class LibroDAO {
             return "El libro : " + l.getAutor() + "existe";
         }
         else{
-            return "El libro : " + autor + "no existe";
+            return "El autor que busca no existe";
         }
     }
     

@@ -17,7 +17,7 @@ import org.hibernate.HibernateException;
  * @author willi
  */
 public class PrestamoDAO {
-    public List<Prestamo> verCategoria(){
+    public List<Prestamo> verPrestamo(){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sesion = sf.openSession();
         Query query = sesion.createQuery("from Prestamo");
